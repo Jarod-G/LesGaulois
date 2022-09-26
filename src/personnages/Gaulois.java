@@ -27,6 +27,11 @@ public class Gaulois {
 		romain.recevoirCoup(force / 3);
 	}
 	
+	public void boirePotion(int forcePotion) {
+		this.effetPotion = forcePotion;
+		this.parler("Merci Druide, je sens que ma force est " + effetPotion + " fois décuplée.");
+	}
+	
 	@Override
 	public String toString() {
 		
@@ -42,6 +47,7 @@ public class Gaulois {
 		asterix.prendreParole();
 		asterix.parler("Purée de pomme de terre");
 		asterix.frapper(minus);
+		asterix.boirePotion(4);
 		System.out.println(asterix);
 	}
 }
