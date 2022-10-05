@@ -11,11 +11,11 @@ public class Scenario {
 		Romain minus;
 		Druide panoramix;
 		panoramix = new Druide("Panoramix",5,10);
-		asterix = new Gaulois("Astï¿½rix", 8);
-		obelix = new Gaulois("ObÃ©lix", 10);
+		asterix = new Gaulois("Astérix", 8);
+		obelix = new Gaulois("Obélix", 10);
 		minus = new Romain("Minus", 6);
 		
-		panoramix.parler("Je vais aller prÃ©parer une petite potion...");
+		panoramix.parler("Je vais aller préparer une petite potion...");
 		panoramix.preparerPotion();
 		panoramix.booster(obelix);
 		obelix.parler("Par BÃ©lÃ©nos, ce n'est pas juste !");
