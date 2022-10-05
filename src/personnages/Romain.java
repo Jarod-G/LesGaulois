@@ -5,6 +5,7 @@ public class Romain {
 	private int force;
 	
 	public Romain(String nom, int force) {
+		assert (this.force >= 0) : "la force d’un Romain est toujours positive";
 		this.nom = nom;
 		this.force = force;
 	}
@@ -22,8 +23,12 @@ public class Romain {
 	}
 	
 	public void recevoirCoup(int forceCoup) {
-		this.force -= forceCoup;
-		if (this.force > 0) {
+		assert (force >= 0) : "la force d’un Romain est toujours positive";
+		int preForce = force;
+		force -= forceCoup;
+		int postForce = force;
+		assert (postForce < preForce) : "la force d’un Romain a diminué";
+		if (force > 0) {
 			parler("Aïe");
 		} else {
 			parler("J'abandonne...");
