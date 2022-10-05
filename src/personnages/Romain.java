@@ -7,7 +7,7 @@ public class Romain {
 	private int nbEquipement = 0;
 	
 	public Romain(String nom, int force) {
-		assert (force >= 0) : "la force díun Romain est toujours positive";
+		assert (force >= 0) : "la force dÔøΩun Romain est toujours positive";
 		this.nom = nom;
 		this.force = force;
 	}
@@ -17,7 +17,7 @@ public class Romain {
 	}
 	
 	public void parler(String texte) {
-		System.out.println(prendreParole() + "´ " + texte + "ª");
+		System.out.println(prendreParole() + "ÔøΩ " + texte + "ÔøΩ");
 	}
 	
 	private String prendreParole() {
@@ -25,20 +25,37 @@ public class Romain {
 	}
 	
 	public void recevoirCoup(int forceCoup) {
-		assert (force >= 0) : "la force díun Romain est toujours positive";
+		assert (force >= 0) : "la force dÔøΩun Romain est toujours positive";
 		int preForce = force;
 		force -= forceCoup;
 		int postForce = force;
-		assert (postForce < preForce) : "la force díun Romain a diminuÈ";
+		assert (postForce < preForce) : "la force dÔøΩun Romain a diminuÔøΩ";
 		if (force > 0) {
-			parler("AÔe");
+			parler("AÔøΩe");
 		} else {
 			parler("J'abandonne...");
 		}
 	}
 	
 	public void sEquiper(Equipement equipement) {
-		// ‡ finir
+		switch (nbEquipement) {
+			case 2: 
+				System.out.println("Le soldat " + this.getNom() + " est d√©j√† bien prot√©g√© !");
+				break;
+			case 1:
+				if (equipements[0] == equipement) {
+					System.out.println("Le soldat " + this.getNom() + " poss√®de d√©j√† un " + equipement.nom);
+					break;
+				}
+			default:
+				equipements[nbEquipement] = equipement;
+				nbEquipement += 1;
+				System.out.println("Le soldat " + this.getNom() + " s'√©quipe avec un " + equipement.nom + ".");
+				break;
+				
+		}
+				
+			
 	}
 	
 	public static void main(String[] args) {
@@ -48,6 +65,9 @@ public class Romain {
 		minus.parler("Bonjour je mi namae Minus mais je suis pas minus mskn");
 		minus.recevoirCoup(2);
 		minus.recevoirCoup(4);
-		System.out.println(Equipement.BOUCLIER);
+		minus.sEquiper(Equipement.CASQUE);
+		minus.sEquiper(Equipement.CASQUE);
+		minus.sEquiper(Equipement.BOUCLIER);
+		minus.sEquiper(Equipement.CASQUE);
 	}
 }
